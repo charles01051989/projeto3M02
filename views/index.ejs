@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="script.js" defer></script>
+    <title>Unidades de conservação do Estado do Rio Grande do Sul</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+
+                <a href="/">
+                    <h1>Unidades de conservação do Estado do Rio Grande do Sul</h1>
+                </a>
+
+            </li>
+            <li><a href="/register">Cadastro</a></li>
+            <li><a href="#cards">Unidades</a></li>
+            <li> <a href="#cards">Atualizar Unidades</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="cards">
+
+            <h2>Lista de Unidades</h2>
+
+            <% uecs.map((uec)=> { %>
+
+                <div class="card">
+                    <abbr title="Click para ver os detalhes"><a href="/infP/<%= uec.id %>"><img
+                                src="<%= uec.imagem %>" alt=""></a></abbr>
+                    <h3>
+                        <%= uec.nome %>
+                    </h3>
+                    <p>Biomas: <%= uec.biomas %> </p>
+                </div>
+                <% }) %>
+        </section>
+
+    </main>
+    <footer>
+        <p>Todos os direitos reservados para Charles Marques</p>
+    </footer>
+</body>
+
+</html>
