@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li>
+
+                <a href="/">
+                    <h1>Unidades de conservação do Estado do Rio Grande do Sul</h1>
+                </a>
+
+            </li>
+            <li><a href="/register">Cadastro</a></li>
+            <li><a href="/">Unidades</a></li>
+            <li> <a href="/">Atualizar Unidades</a></li>
+
+        </ul>
+    </nav>
+
+    <section id="cadastro">
+
+        <div>
+            <h2>Detalhes da Unidade!</h2>
+
+            <div class="cardD">
+                <img src="<%= uec.imagem %>" alt=""></a>
+
+            </div>
+
+            <div class="cardDt">
+                <h2>
+                    <%= uec.nome %>
+                </h2>
+                <p class="descricao">
+                    <%= uec.descricao%>
+                </p>
+                <p>Visitação: <%= uec.visitacao %>
+                </p>
+                <p>Biomas: <%= uec.biomas %>
+                </p>
+                <a href="<%= uec.localizacao%>" target="_blank">Localização</a>
+                <a id="editar" href="/getById/<%= uec.id %>/put">Editar</a>
+                <a id="delete" href="/getById/<%= uec.id %>/delete">Deletar</a>
+            </div>
+        </div>
+    </section>
+    <% if (uecPut!=null) {%>
+        <section class="modal-overlay" id="overlay">
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <h3>Atualizar Unidade</h3>
+                    <a href="/details/<%= uec.id %>" id="close-modal-put">x</a>
+                </div>
+                <div class="modal-body">
+                    <form class="form-modal" action="/update/<%= uecPut.id %>" method="post">
+
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" value="<%= uecPut.nome%>">
+        
+                        <label for="imagem">Link da imagem:</label>
+                        <input type="text" id="imagem" name="imagem" value="<%= uecPut.imagem%>">
+        
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" id="descricao" name="descricao" value="<%= uecPut.descricao %>">
+        
+                        <label for="visitacao">Visitação:</label>
+                        <input type="text" id="visitacao" name="visitacao" value="<%= uecPut.visitacao %>">
+        
+                        <label for="biomas">Biomas:</label>
+                        <input type="text" id="biomas" name="biomas" value="<%= uecPut.biomas %>">
+        
+                        <label for="localizacao">Link da Localização:</label>
+                        <input type="text" id="localizacao" name="localizacao" value="<%= uecPut.localizacao %>">
+        
+                        <button onclick="cadastro()" type="submit">Atualizar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <% } %>
+            <footer>
+                <p>Todos os direitos reservados para Charles Marques</p>
+            </footer>
+
+</body>
+
+</html>

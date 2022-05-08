@@ -36,12 +36,13 @@
             <% uecs.map((uec)=> { %>
 
                 <div class="card">
-                    <abbr title="Click para ver os detalhes"><a href="/infP/<%= uec.id %>"><img
+                    <abbr title="Click para ver os detalhes"><a href="/details/<%= uec.id %>"><img
                                 src="<%= uec.imagem %>" alt=""></a></abbr>
                     <h3>
                         <%= uec.nome %>
                     </h3>
-                    <p>Biomas: <%= uec.biomas %> </p>
+                    <p>Biomas: <%= uec.biomas %>
+                    </p>
                 </div>
                 <% }) %>
         </section>
