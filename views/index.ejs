@@ -11,6 +11,7 @@
 </head>
 
 <body>
+   
     <nav>
         <ul>
             <li>
@@ -20,21 +21,26 @@
                 </a>
 
             </li>
+            <li><a href="/">Inicio</a></li>
             <li><a href="/register">Cadastro</a></li>
             <li><a href="#cards">Unidades</a></li>
             <li> <a href="#cards">Atualizar Unidades</a></li>
-
+           
         </ul>
     </nav>
-
+    <header>
+        <img src="https://ayuliz1513.files.wordpress.com/2014/10/trees-warmed-by-morning-sunlight.jpg" alt="">
+    </header>
     <main>
-
+        <%if(message!= "" ) { %>
+            <%- include('./components/alerts') %>
+                <% } %>
         <section id="cards">
-
+           
             <h2>Lista de Unidades</h2>
-
+           
             <% uecs.map((uec)=> { %>
-
+               
                 <div class="card">
                     <abbr title="Click para ver os detalhes"><a href="/details/<%= uec.id %>"><img
                                 src="<%= uec.imagem %>" alt=""></a></abbr>
@@ -45,12 +51,16 @@
                     </p>
                 </div>
                 <% }) %>
+              
         </section>
-
+       
     </main>
     <footer>
         <p>Todos os direitos reservados para Charles Marques</p>
+        <p>Dados retirados de <a href="https://sema.rs.gov.br/unidades-de-conservacao-estaduais" target="blank">https://sema.rs.gov.br/</a></p>
+    
     </footer>
+    <script src="/script.js" ></script>
 </body>
 
 </html>

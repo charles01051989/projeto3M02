@@ -20,17 +20,23 @@
                 </a>
 
             </li>
+            <li><a href="/">Inicio</a></li>
             <li><a href="/register">Cadastro</a></li>
             <li><a href="/">Unidades</a></li>
             <li> <a href="#cards">Atualizar Unidades</a></li>
 
         </ul>
     </nav>
+    <header>
+        <img src="https://www.seine-maritime-tourisme.com/lae/public1.0/img/photos/eu/Eu-foret-1500-X-500.jpg" alt="">
+    </header>
 <main>
     <section id="cadastro">
-
         <div>
             <h2>Cadastre Uma Unidade </h2>
+            <%if(message!= "" ) { %>
+                <%- include('./components/alerts') %>
+                    <% } %>
 
             <form action="/create" method="post">
 
@@ -61,8 +67,9 @@
 </main>
     <footer>
         <p>Todos os direitos reservados para Charles Marques</p>
+       <p>Dados retirados de <a href="https://sema.rs.gov.br/unidades-de-conservacao-estaduais" target="blank">https://sema.rs.gov.br/</a></p>
     </footer>
-
+    <script src="/script.js" ></script>
 </body>
 
 </html>

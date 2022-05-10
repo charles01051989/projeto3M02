@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+   
     <nav>
         <ul>
             <li>
@@ -20,13 +20,17 @@
                 </a>
 
             </li>
+            <li><a href="/">Inicio</a></li>
             <li><a href="/register">Cadastro</a></li>
-            <li><a href="/">Unidades</a></li>
-            <li> <a href="/">Atualizar Unidades</a></li>
+            <li><a href="/#cards">Unidades</a></li>
+            <li> <a href="/#cards">Atualizar Unidades</a></li>
 
         </ul>
     </nav>
-
+    <header>
+        <img src="https://www.advisian.com/-/media/images/home/who-we-are/news/2021/clfn-and-advisian-announce-limited-partnership/cold-lake-river.ashx?h=500&w=1500&la=en&hash=B74E682A21E1E77A632B9F409ECADA05" alt="banner">
+       
+    </header>
     <section id="cadastro">
 
         <div>
@@ -59,39 +63,60 @@
             <div class="modal" id="modal">
                 <div class="modal-header">
                     <h3>Atualizar Unidade</h3>
-                    <a href="/details/<%= uec.id %>" id="close-modal-put">x</a>
+                    <a href="/" id="close-modal-put">x</a>
                 </div>
                 <div class="modal-body">
                     <form class="form-modal" action="/update/<%= uecPut.id %>" method="post">
 
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" value="<%= uecPut.nome%>">
-        
+
                         <label for="imagem">Link da imagem:</label>
                         <input type="text" id="imagem" name="imagem" value="<%= uecPut.imagem%>">
-        
+
                         <label for="descricao">Descrição:</label>
                         <input type="text" id="descricao" name="descricao" value="<%= uecPut.descricao %>">
-        
+
                         <label for="visitacao">Visitação:</label>
                         <input type="text" id="visitacao" name="visitacao" value="<%= uecPut.visitacao %>">
-        
+
                         <label for="biomas">Biomas:</label>
                         <input type="text" id="biomas" name="biomas" value="<%= uecPut.biomas %>">
-        
+
                         <label for="localizacao">Link da Localização:</label>
                         <input type="text" id="localizacao" name="localizacao" value="<%= uecPut.localizacao %>">
-        
+
                         <button onclick="cadastro()" type="submit">Atualizar</button>
                     </form>
                 </div>
             </div>
         </section>
         <% } %>
-            <footer>
-                <p>Todos os direitos reservados para Charles Marques</p>
-            </footer>
 
+            </section>
+            <% if (uecDel!=null) {%>
+                <section class="modal-overlay" id="overlay">
+                    <div class="modal" id="modal">
+                        <div class="modal-header">
+                            <h3>Remover Unidade</h3>
+                            <a href="/" id="close-modal-put">x</a>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja remover a unidade <%= uecDel.nome %>
+                            </p>
+                            <div id="btns-del">
+                                <a id="no" href="/">Não</a>
+                                <a id="yes" href="/remove/ <%= uecDel.id %> ">Sim</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <% } %>
+                    <footer>
+                        <p>Todos os direitos reservados para Charles Marques</p>
+                        <p>Dados retirados de <a href="https://sema.rs.gov.br/unidades-de-conservacao-estaduais" target="blank">https://sema.rs.gov.br/</a></p>
+                    </footer>
+                    <script src="/script.js" ></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/db");
 
-//"Pokemon"connect with module.exports in to the end of code
+
 const Uec = connection.define(
   "uec",
   {
