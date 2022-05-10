@@ -1,1 +1,1 @@
-Projeto de aplicação de pokedex com o objetivo de cadastrar novos pokemons, bem como atualizá-los.
+Projeto de aplicação de catálogo com o objetivo de visualizar, inserir, atualizar e remover informações de unidades de conservação ambiental do estado do RS.
